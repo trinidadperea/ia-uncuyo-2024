@@ -8,8 +8,10 @@ A partir de esa hipotesis es que surge la inteligencia artificial debil. Al inic
 Luego aparece la gran pregunta, por lo que la definicion empieza a cambiar, ¿Las maquinas pueden pensar?. Es por esto que surge el Test de Alang Turing. 
 Lo que sugiere es que en vez de preguntar si las maquinas pueden pensar, es si pueden pasar cierto test de inteligencia, llamado "Turing Test". Este test lo que hace es una interrogacion de cinco minutos, y lo que debe averiguar es si esta hablando con una maquina o con una persona, en eso consiste, si la maquina engaña al interrogador el 30% de las preguntas, pasa el test. El propio Turing examino una gran variedad posible de objeciones a la posibilidad de maquinas inteligentes.
 
+"""
 __El argumento de la discapacidad__
 Este argumento lo que dice es que una maquina "nunca puede hacer algo x". Que quiere decir con eso?, por ejemplo, una maquina no puede ser linda, amigable, buena, equivocarse, enamorarse, entre otras cosas mas que los humanos si. Lo que este argumento dice entonces, es que una maquina nunca podra tener emociones reales. 
+"""
 __La objecion Matematica__
 Es sabido, que hay ciertas preguntas matematicas que no son contestadas todavia por diferentes sistemas, uy es por esto que filosofos han dicho que las maquinas son mentalmente inferiores a los humanos, ya que las maquinas estan limitadas por el teorema de la incompletitud.
 __EL argumento de la informalidad__
