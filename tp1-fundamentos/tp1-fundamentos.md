@@ -61,4 +61,10 @@ La preocupación sobre los robots y sistemas de IA actuando de manera dañina re
 
 ## Ejercicio 2
 
+## Ejercicio 3
+Defendiendo el uso de la inteligencia artificial, a pesar de las críticas planteadas en el artículo “You are not a parrot”, la inteligencia artificial ha aportado contribuciones significativas y positivas en múltiples aspectos de la vida cotidiana. En primer lugar, la IA ha transformado y optimizado la manera en que llevamos a cabo nuestras actividades diarias, haciendo que tareas que antes eran complejas y requerían mucho tiempo sean ahora más sencillas y rápidas. Por ejemplo, los asistentes virtuales y las aplicaciones de organización personal utilizan IA para ayudarnos a gestionar nuestro tiempo, recordarnos compromisos y mejorar nuestra productividad general.
+
+Ademas ha tenido un gran impacto positivo en ramas como la salud, la educación y la seguridad. Su potencial en estos y otros campos demuestra el potencial en el progreso de la sociedad.
+
+
 
