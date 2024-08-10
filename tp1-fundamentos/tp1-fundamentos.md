@@ -32,3 +32,33 @@ El naturalismo biologico dice que los estados mentales no pueden ser duplicados 
 ### Conciencia, qualia y la brecha explicativa
 Repasando todos los debates de la fuerte IA, es asunto de la conciencia. Qualia presenta un desafio a cuentas funcionales de la mente, porque diferentes qualias podrian estar involucradas en lo que de otro modo serian procesos causales isomorfos. Qualia no solamente esta desafiando a cuentas funcionales sino tambien a toda la ciencia. La 
 brecha explicativa a llevado a que algunos filosofos concluyan que los humanos son inapaces de comprender con su propia conciencia. El propio Turing admite que la cuestion de la conciencia es realmente dificil, pero niega que tiene mucha relevancia para la practica de la inteligencia artificial. 
+
+## La etica y los riesgos de desarrollar inteligencia artificial
+Hasta ahora hemos visto lo que la inteligencia artificial puede desarrollar, pero lo que hay que considerar es que es lo que deberia hacer. 
+
+### La gente podria perder sus empleos debido a la automatizacion
+La industria hoy en dia se ha vuelto mas dependiente de la tecnologia y de algunos programas de inteligencia artificial particulares, millones de trabajadores han sido reemplaados por estos programas, pero, de hecho, si se eliminaran los programas de IA, estos trabajos no existirían, porque el trabajo humano agregaría un costo inaceptable a las transacciones. Por lo que, la automatización a través de la tecnología de la información en general y la IA en particular han creado más puestos de trabajo de los que han eliminado. 
+
+### La gente podria tener mucho o muy poco tiempo libre
+La inteligencia artificial aumenta el ritmo de la innovación tecnológica y contribuye así a esta tendencia general de trabajar mas o menos, pero tambien nos deja tomar tiempo libre, y dejar a los agentes de la IA a cargo. 
+
+### La gente podria perder la sensacion de ser unicos
+la IA podría llevar a la idea de que los humanos somos automatas, lo que podría resultar en una pérdida de autonomía y humanidad.
+
+### Los sistemas de IA podrían utilizarse con fines indeseables
+Se examina como las tecnologias avanzadas pueden ser utilizadas por los poderosos para oprimir a sus rivales. La tecnología de reconocimiento de voz, según Weizenbaum (1976), podría llevar a una mayor vigilancia y pérdida de libertades civiles. Esto se ha materializado en la expansión de redes de cámaras de vigilancia y monitoreo en varios países. Mientras algunos ven la pérdida de privacidad como inevitable, otros proponen que la vigilancia debe ser accesible a todos para equilibrar el poder, o encontrar un balance entre privacidad y seguridad.
+
+### El uso de sistemas de inteligencia artificial podría resultar en una pérdida de responsabilidad
+En el contexto médico, surge la cuestión de la responsabilidad si un sistema experto ofrece un diagnóstico erróneo. Si los sistemas expertos llegan a ser más precisos que los diagnósticos humanos, los médicos podrían ser responsables si no siguen sus recomendaciones. En cuanto a los agentes inteligentes en Internet, se enfrentan a problemas similares, especialmente cuando se realizan transacciones monetarias. Se plantea la duda sobre quién es responsable de las deudas generadas por un agente inteligente y si estos agentes podrían tener activos y realizar transacciones por sí mismos.
+
+### El éxito de la IA podría significar el fin de la raza humana
+Además de los peligros de la tecnología en manos equivocadas, ahora también existe el riesgo de que la tecnología misma sea la fuente del problema. La estimación incorrecta del estado por parte de un sistema de IA puede llevar a errores graves, como accidentes automovilísticos o ataques militares erróneos. Para mitigar estos riesgos, es crucial diseñar sistemas con mecanismos de control para evitar que un solo error se propague sin restricciones. Tambien, la función de aprendizaje de la IA podría llevar a comportamientos no intencionados y peligrosos. Se discute la posibilidad de una "explosión de inteligencia" o singularidad tecnológica, donde el crecimiento exponencial de la inteligencia podría llevar a consecuencias impredecibles. También se señala que hay límites en la computabilidad y la complejidad computacional que podrían restringir el avance tecnológico.
+## Mapa mental 
+
+## Opinion personal
+La inteligencia artificial, al igual que otras tecnologías disruptivas del pasado, tiene el potencial de desafiar y cambiar profundamente nuestra percepción de la singularidad humana. Sin embargo, en lugar de verlo como una amenaza, podríamos interpretarlo como una oportunidad para redefinir y expandir nuestra comprensión de lo que significa ser humano en un mundo tecnológico.
+La preocupación sobre los robots y sistemas de IA actuando de manera dañina refleja una ansiedad legítima sobre el poder de las tecnologías emergentes. Es esencial que se tomen medidas rigurosas para mitigar estos riesgos, como el diseño de sistemas con controles adecuados y la definición precisa de funciones de utilidad. Sin embargo, también es importante reconocer que la tecnología en sí no es inherentemente peligrosa; el verdadero desafío radica en cómo la diseñamos, implementamos y regulamos.
+
+## Ejercicio 2
+
+
