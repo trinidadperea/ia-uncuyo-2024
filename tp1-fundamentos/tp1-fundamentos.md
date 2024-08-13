@@ -60,7 +60,7 @@ La inteligencia artificial, al igual que otras tecnologías disruptivas del pasa
 La preocupación sobre los robots y sistemas de IA actuando de manera dañina refleja una ansiedad legítima sobre el poder de las tecnologías emergentes. Es esencial que se tomen medidas rigurosas para mitigar estos riesgos, como el diseño de sistemas con controles adecuados y la definición precisa de funciones de utilidad. Sin embargo, también es importante reconocer que la tecnología en sí no es inherentemente peligrosa; el verdadero desafío radica en cómo la diseñamos, implementamos y regulamos.
 
 ## Ejercicio 2
-
+faltaria agregar ejercicio 2
 ## Ejercicio 3
 Defendiendo el uso de la inteligencia artificial, a pesar de las críticas planteadas en el artículo “You are not a parrot”, la inteligencia artificial ha aportado contribuciones significativas y positivas en múltiples aspectos de la vida cotidiana. En primer lugar, la IA ha transformado y optimizado la manera en que llevamos a cabo nuestras actividades diarias, haciendo que tareas que antes eran complejas y requerían mucho tiempo sean ahora más sencillas y rápidas. Por ejemplo, los asistentes virtuales y las aplicaciones de organización personal utilizan IA para ayudarnos a gestionar nuestro tiempo, recordarnos compromisos y mejorar nuestra productividad general.
 
