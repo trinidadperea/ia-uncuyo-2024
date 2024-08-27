@@ -18,10 +18,10 @@ Además del tamaño del entorno, se consideraron cuatro niveles de suciedad: 10%
 
 Cada combinación de tamaño de cuadrícula y porcentaje de suciedad fue probada múltiples veces para garantizar la consistencia de los resultados y para mitigar el efecto de la aleatoriedad en los experimentos. Los resultados obtenidos fueron organizados en una tabla y posteriormente visualizados en gráficos, lo que permitió un análisis comparativo de la efectividad del agente en los distintos escenarios.
 # Grafico agente reflexivo simple
-![Agente Reflexivo Simple](tp2-agentes-racionales/imagenes/agente_reflexivo_simple.png)
+![Agente Reflexivo Simple](imagenes/agente%20reflexivo%20simple.png)
 
 # Grafico agente reflexivo aleatorio
-![Agente Reflexivo Aleatorio](tp2-agentes-racionales/imagenes/agente_reflexivo_aleatorio.png)
+![Agente Reflexivo Aleatorio](imagenes/agente%20reflexivo%20aleatorio.png)
 
 ## Analisis y discusion de resultados
 El análisis de los resultados obtenidos a partir de las múltiples ejecuciones del experimento revela patrones interesantes sobre el comportamiento del agente reflexivo simple. Se observó que, en entornos más pequeños, el agente tiene una mayor probabilidad de limpiar un porcentaje alto de la suciedad, independientemente del nivel de suciedad presente. Esto se debe a que, en una cuadrícula más pequeña, el agente puede cubrir todo el espacio en menos tiempo, lo que aumenta la probabilidad de que limpie las celdas sucias antes de que finalice el período de observación.
