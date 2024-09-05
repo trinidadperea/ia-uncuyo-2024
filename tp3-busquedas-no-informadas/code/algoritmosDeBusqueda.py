@@ -3,149 +3,150 @@ from collections import deque
 import gymnasium as gym
 import random
 import heapq
+from node import Node
+from custom_map import validLocation
 
-from collections import deque
-
-from collections import deque
 
 def bfs(env, start, goal):
-    queue = deque([(start, [start])])
-    came_from = {start: None}
+    node = Node(start) #nodo inicial
+    queue = [node]  #creo la cola
+
     visited = set()
-    visited.add(start)
+    count = 0
+    cost = 0
+    cost2 = 0
 
     while queue:
-        (current, path) = queue.popleft()
-        if current == goal:
-            #print_environment_info(env)  # Imprime el entorno generado
-            #print("Secuencia de estados:", path)  # Imprime la secuencia de estados
-            return path
+        node = queue.pop()
+        visited.add(node.position)
+        count += 1
 
-        for action in range(env.action_space.n):
-            next_state = take_action(env, current, action)
-            if next_state not in visited:
-                visited.add(next_state)
-                queue.append((next_state, path + [next_state]))
-                came_from[next_state] = current
-    #print_environment_info(env) # Imprime el entorno generado
-    #print("Secuencia de estados: No encontrado")  # Imprime que no se encontró una secuencia
-    return None
-
-
-def dfs(env,start,goal):
-    stack = deque([(start, [start])])
+        if node.position == goal: #llegue al goal, retorno la cantidad de pasos
+            return count, cost, cost2
+        
+        for action in ["arriba", "abajo", "izquierda", "derecha"]:
+            cost += 1 #escenario 1 cada accion tiene costo 1
+            cost2 += calculate_cost2(action)
+            x, y = take_action(node.position, action)
+            if (x, y) not in visited and validLocation(env,x, y):
+                new_node = Node((x, y), node, action)
+                visited.add(new_node.position) 
+                queue.append(new_node)
     
-    came_from = {start: None}
+    return None, cost, cost2
+
+def dfs(env, start, goal):
+
+    node = Node(start)
+    stack = [node]
     visited = set()
-    visited.add(start)
-    
+    count = 0
+    cost = 0
+    cost2 = 0
+
     while stack:
-        (current, path) = stack.pop()
-        
-        if current == goal:
-            return path  
-        
 
-        for action in range(env.action_space.n):
-            next_pos = take_action(env, current, action)
-            if next_pos not in visited:
-                visited.add(next_pos)
-                stack.append((next_pos, path + [next_pos]))
-                came_from[next_pos] = current
-            
-    
-    return None
-def dfs_limit(env,start,goal,limit):
+        node = stack.pop(0)
+        count += 1
+        visited.add(node.position)
 
-    stack = deque([(start, [start],0)])
-    came_from = {start: None}
+        if node.position == goal:
+            return count, cost, cost
+        
+        for action in ["arriba", "abajo", "izquierda", "derecha"]:
+            cost += 1
+            cost2 += calculate_cost2(action)
+            x, y = take_action(node.position, action)
+            if (x,y) not in visited and validLocation(env,x,y):
+                new_node = Node((x,y), node,)
+                stack.insert(0,new_node)
+
+    return None, cost, cost2
+
+def dfs_limit(env, start, goal, limit):
+    stack = [Node(start)]
     visited = set()
-    visited.add(start)
-    
+    count = 0
+    cost = 0
+    cost2 = 0
+
     while stack:
-        (current, path, depth) = stack.pop()
+        node = stack.pop()
+        count += 1
+        visited.add(node.position)
+        limit -= 1
+
+        if node.position == goal:
+            return count, cost, cost2
         
-        if current == goal:
-            return path 
+        if limit <= 0:
+            return None, cost, cost2
         
-        if depth < limit:
-            for action in range(env.action_space.n):
-                next_pos = take_action(env, current, action)
-                if next_pos not in visited:
-                    visited.add(next_pos)
-                    stack.append((next_pos, path + [next_pos],depth + 1))
-                    came_from[next_pos] = current
-            
-    return None
+        for action in ["arriba", "abajo", "izquierda", "derecha"]:
+            cost += 1
+            cost2 += calculate_cost2(action)
+            x, y = take_action(node.position, action)
+            if (x, y) not in visited and validLocation(env,x, y):
+                new_node = Node((x, y), node)
+                stack.append(new_node)
+
+    return None, cost, cost2
+
 
 def ucs(env, start, goal):
-    # La cola de prioridad se implementa usando heapq
-    queue = []
-    heapq.heappush(queue, (0, start, [start]))  # (costo acumulado, estado actual, camino)
-    
-    came_from = {start: None}
-    cost_so_far = {start: 0}
+
+    queue = [(0, Node(start))]
     visited = set()
+    count = 0
+    cost = 0
+    cost2 = 0
 
     while queue:
-        current_cost, current, path = heapq.heappop(queue)
+        cost, node = queue.pop(0)
+        count += 1
 
-        if current == goal:
-            return path
+        if node.position == goal:
+            return count, cost, cost2
 
-        if current in visited:
+        if node.position in visited:
             continue
 
-        visited.add(current)
+        visited.add(node.position)
+        for action in ["arriba", "abajo", "izquierda", "derecha"]:
+            cost += 1
+            cost2 += calculate_cost2(action)
+            x, y = take_action(node.position, action)
+            if validLocation(env, x, y):
+                new_node = Node((x, y), node, action)
+                new_cost = cost + 1  # Incrementamos el costo
+                queue.append((new_cost, new_node))
 
-        for action in range(env.action_space.n):
-            next_state = take_action(env, current, action)
-            new_cost = current_cost + 1  # Aquí puedes ajustar el costo según sea necesario
+        queue.sort(key=lambda x: x[0])  # Ordenar por costo
 
-            if next_state not in visited and (next_state not in cost_so_far or new_cost < cost_so_far[next_state]):
-                cost_so_far[next_state] = new_cost
-                priority = new_cost
-                heapq.heappush(queue, (priority, next_state, path + [next_state]))
-                came_from[next_state] = current
+    return None, cost, cost2
 
-    return None
 
 #funcion donde elijo la accion a realizar
-def take_action(env,position,action):
-    directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
-
-    direction = directions[action]
-
-    # Calculamos la nueva posición
-    new_x = position[0] + direction[0]
-    new_y = position[1] + direction[1]
-
-    if 0 <= new_x < env.spec.max_episode_steps and 0 <= new_y < env.spec.max_episode_steps:
-        return (new_x, new_y)
+def take_action(position,action):
+    x, y = position
+    if action == "arriba":
+        return x - 1, y
+    elif action == "abajo":
+        return x + 1 , y
+    elif action == "izquierda":
+        return x, y - 1
+    elif action == "derecha":
+        return x, y + 1
     
-    return position
-
-def print_environment_info(env):
-    # Usar `env.unwrapped` para acceder a la información subyacente
-    unwrapped_env = env.unwrapped
-
-    if hasattr(unwrapped_env, 'desc'):
-        print("Descripción del entorno:")
-        print(unwrapped_env.desc)
-    else:
-        print("Descripción del entorno no disponible.")
-
-    if hasattr(unwrapped_env, 'observation_space'):
-        print("Espacio de observación:")
-        print(unwrapped_env.observation_space)
-
-    if hasattr(unwrapped_env, 'action_space'):
-        print("Espacio de acción:")
-        print(unwrapped_env.action_space)
+#escenario 2
+def calculate_cost2(action):
+    if action == "arriba":
+        return 3
+    if action == "abajo":
+        return 1
+    if action == "izquierda":
+        return 0
+    if action == "derecha":
+        return 2
     
-    # Intentar obtener el estado actual de `unwrapped_env`
-    if hasattr(unwrapped_env, 'state'):
-        print("Estado actual:")
-        print(unwrapped_env.state)
-    else:
-        print("El entorno no tiene un estado disponible para imprimir.")
+

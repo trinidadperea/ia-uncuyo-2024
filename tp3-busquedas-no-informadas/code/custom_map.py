@@ -17,7 +17,7 @@ def frozenLake(env):
 
     done = truncated = False
     while not (done or truncated):
-        action = env.action_space.sample() # Acci´on aleatoria
+        action = env.action_space.sample() # Accion aleatoria
         next_state, reward, done, truncated, _ = env.step(action)
         print(f"Accion: {action}, Nuevo estado: {next_state}, Recompensa: {reward}")
         print(f"¿Gano? (encontro el objetivo): {done}")
@@ -75,4 +75,17 @@ def generate_random_map_obstaculos(tamaño,probabilidad):
     map = [''.join(row) for row in map]
     
     return map
+
+def validLocation(env,x,y):
+    # Verifica si la posición está dentro de los límites del mapa
+    desc = env.unwrapped.desc
+    size = len(desc)
+    if x < 0 or y < 0 or x >= size or y >= size:
+        return False
+    
+    # Verifica si la posición no es un obstáculo
+    if desc[x][y] == 'H':
+        return False
+    
+    return True
 
