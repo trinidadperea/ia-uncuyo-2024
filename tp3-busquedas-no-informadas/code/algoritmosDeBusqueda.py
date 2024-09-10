@@ -92,7 +92,6 @@ def dfs_limit(env, start, goal, limit):
 
     return None, cost, cost2
 
-
 def ucs(env, start, goal):
 
     queue = [(0, Node(start))]
@@ -123,7 +122,49 @@ def ucs(env, start, goal):
 
         queue.sort(key=lambda x: x[0])  # Ordenar por costo
 
-    return None, cost, cost2
+    return None, cost, cost2 
+def a_star(env, start, goal, heuristic_func):
+    queue = [(0, 0, Node(start))]  # (costo_total, costo_acumulado, nodo)
+    visited = set()
+    count = 0
+    cost2_total = 0  # Para almacenar el costo secundario si es necesario
+
+    while queue:
+        # Obtenemos el nodo con el menor costo total
+        cost_total, cost_accumulated, node = heapq.heappop(queue)
+        count += 1
+
+        # Si alcanzamos el objetivo
+        if node.position == goal:
+            return count, cost_accumulated, cost2_total
+
+        # Verificamos si ya visitamos el nodo
+        if node.position in visited:
+            continue
+
+        visited.add(node.position)
+
+        # Expandimos los vecinos (acciones posibles)
+        for action in ["arriba", "abajo", "izquierda", "derecha"]:
+            x, y = take_action(node.position, action)
+
+            if validLocation(env, x, y):  # Verificamos si la ubicación es válida
+                new_node = Node((x, y), node, action)
+                action_cost = calculate_cost2(action)  # Costo asociado a la acción
+                new_cost_accumulated = cost_accumulated + action_cost  # Costo acumulado
+                heuristic_cost = heuristic_func((x, y), goal)  # Coste estimado heurístico
+
+                # Costo total en A* = Costo acumulado + Heurística
+                new_cost_total = new_cost_accumulated + heuristic_cost
+
+                # Incrementamos el costo secundario si es necesario
+                cost2_total += action_cost
+
+                # Añadimos el nuevo nodo con su costo total y acumulado a la cola
+                heapq.heappush(queue, (new_cost_total, new_cost_accumulated, new_node))
+
+    # Si no encontramos una solución
+    return None, float('inf'), cost2_total
 
 
 #funcion donde elijo la accion a realizar

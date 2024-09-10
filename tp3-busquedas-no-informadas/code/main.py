@@ -4,7 +4,7 @@ from gymnasium.envs.toy_text.frozen_lake import generate_random_map
 import gymnasium as gym
 from gymnasium.wrappers import TimeLimit
 from custom_map import generate_random_map_obstaculos
-from algoritmosDeBusqueda import bfs, dfs, dfs_limit, ucs
+from algoritmosDeBusqueda import *
 import random
 import matplotlib.pyplot as plt
 import csv
@@ -29,12 +29,16 @@ resultsDFS_LIMIT_cost2 = []
 resultsUCS = []
 resultsUCS_cost = []
 resultsUCS_cost2 = []
+resultsA_star = []
+resultsA_star_cost = []
+resultsA_star_cost2 = []
 
 #listas que llevan los tiempos
 BFS_time = []
 DFS_time = []
 UCS_time = []
 DFS_LIMIT_time = []
+resultsA_star_time = []
 
 custom_map = generate_random_map_obstaculos(tamaño, probabilidad)
 for row in custom_map:
@@ -44,7 +48,9 @@ for row in custom_map:
 env = gym.make('FrozenLake-v1', desc=custom_map, render_mode='human')
 frozenLake(env)
 
-
+# Definir la función de heurística
+def manhattan_distance(current, goal):
+    return abs(current[0] - goal[0]) + abs(current[1] - goal[1])
 
 for i in range(0,iteraciones):
     Sx = random.randint(0,tamaño-1)
@@ -97,14 +103,24 @@ for i in range(0,iteraciones):
         resultsDFS_LIMIT_cost2.append(e2_4)
         DFS_LIMIT_time.append(end_time - start_time)
 
+    #agrego A*
+    start_time = time.time()
+    count5, cost5, e2_5 = a_star(env,start,goal,manhattan_distance)
+    end_time = time.time()
+    resultsA_star.append(count5)
+    resultsA_star_cost.append(cost5)
+    resultsA_star_cost2.append(e2_5)
+    resultsA_star_time.append(end_time - start_time)
+
     #imprimo los resultados
     print(f"[BFS]: {resultsBFS[i]}")
     print(f"[DFS]: {resultsDFS[i]}")
     print(f"[UCS]: {resultsUCS[i]}")
+    print(f"[A*]:  {resultsA_star[i]}")
     if i < len(resultsDFS_LIMIT):
         print(f"[DFS_LIMIT]: {resultsDFS_LIMIT[i]}")
-algoritmosDeBusqueda = ["BFS", "DFS", "UCS","DFSL"]
-resultados = [resultsBFS, resultsDFS, resultsUCS, resultsDFS_LIMIT ]
+algoritmosDeBusqueda = ["BFS", "DFS", "UCS","DFSL","A*"]
+resultados = [resultsBFS, resultsDFS, resultsUCS, resultsDFS_LIMIT, resultsA_star ]
 
 plt.boxplot(resultados, tick_labels=algoritmosDeBusqueda)
 plt.ylabel("Cantidad de pasos")
@@ -132,6 +148,7 @@ with open('no-informada-results.csv', 'w', newline='') as csvfile:
         writer.writerow({'algorithm_name': 'BFS', 'env_n': env_n + 1, 'states_n': resultsBFS[env_n], 'cost_e1' : resultsBFS_cost[env_n],'cost_e2':resultsBFS_cost2[env_n],'time': BFS_time[env_n] ,'solution_found': 'Yes' if resultsBFS[env_n] is not None else 'No'})
         writer.writerow({'algorithm_name': 'DFS', 'env_n': env_n+ 1, 'states_n': resultsDFS[env_n],'cost_e1' : resultsDFS_cost[env_n],'cost_e2':resultsDFS_cost2[env_n],'time': DFS_time[env_n] ,'solution_found': 'Yes' if resultsDFS[env_n] is not None else 'No'})
         writer.writerow({'algorithm_name': 'UCS', 'env_n': env_n + 1, 'states_n': resultsUCS[env_n], 'cost_e1' : resultsUCS_cost[env_n],'cost_e2':resultsUCS_cost2[env_n],'time': UCS_time[env_n] ,'solution_found': 'Yes' if resultsUCS[env_n] is not None else 'No'})
+        writer.writerow({'algorithm_name': 'A*', 'env_n': env_n + 1, 'states_n': resultsA_star[env_n], 'cost_e1' : resultsA_star_cost[env_n],'cost_e2':resultsA_star_cost2[env_n],'time': resultsA_star_time[env_n] ,'solution_found': 'Yes' if resultsA_star[env_n] is not None else 'No'})
         if env_n < len(resultsDFS_LIMIT):
             writer.writerow({'algorithm_name': 'DLS', 'env_n': env_n + 1, 'states_n': resultsDFS_LIMIT[env_n],'cost_e1' :resultsDFS_LIMIT_cost[env_n],'cost_e2':resultsDFS_LIMIT_cost2[env_n],'time': DFS_LIMIT_time[env_n] , 'solution_found': 'Yes' if resultsDFS_LIMIT[env_n] is not None else 'No'})
         else:
