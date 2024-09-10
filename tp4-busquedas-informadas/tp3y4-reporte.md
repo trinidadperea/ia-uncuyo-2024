@@ -12,7 +12,7 @@
 ### Analisis y discusion de resultados
 #### BFS tiende a explorar más estados en comparación con los otros algoritmos debido a su naturaleza de búsqueda en anchura, que explora todos los niveles a una profundidad antes de avanzar. DFS explora menos estados en promedio, pero puede llegar a caminos más largos sin garantizar la solución óptima en términos de costo. UCS explora un número moderado de estados, siendo más eficiente que BFS en términos de estados explorados, ya que prioriza el costo. A* muestra un número aún menor de estados explorados, gracias a su heurística que guía la búsqueda hacia el objetivo más rápidamente. DFS Limit explora menos estados que DFS sin límite, pero su rendimiento puede variar dependiendo del límite de profundidad establecido. Un límite demasiado bajo puede resultar en soluciones incompletas o no óptimas.
 ### Imagenes
-![BoxPlots](boxplot_resultados.png)
+![BoxPlots](imagenes/boxplot%20resultados.png)
 
 ### Conclusion
 #### A* ha demostrado ser el algoritmo más eficiente en términos de la cantidad de estados explorados y el tiempo de ejecución, gracias a su capacidad para utilizar una heurística admisible que guía la búsqueda hacia el objetivo de manera más efectiva. Esto permite a A* encontrar soluciones óptimas con menos exploración comparado con otros algoritmos.
