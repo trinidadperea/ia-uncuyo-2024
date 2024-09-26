@@ -41,9 +41,9 @@ Luego, se ejecutó 30 veces cada algoritmo para el caso de 4, 8 y 10 reinas.
 
 A continuación se muestran los resultados obtenidos usando diagrama de caja
 
-- **Distribución de los tiempos de ejecución** 
-
-![Tiempos de ejecucion](imagenes/tiempo_ejecucion_boxplot.png)
+- **Distribución de los tiempos de ejecución**
+ 
+![Tiempos de ejecucion](https://github.com/trinidadperea/ia-uncuyo-2024/blob/main/tp5-busquedas-locales/imagenes/tiempo_ejecucion_boxplot.png)
 
 - **Distribución de la cantidad de estados visitados**
 
