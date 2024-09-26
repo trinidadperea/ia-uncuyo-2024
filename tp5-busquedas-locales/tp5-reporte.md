@@ -1,4 +1,4 @@
-#INTRODUCCIÓN
+**INTRODUCCIÓN**
 
 En este trabajo, exploramos tres algoritmos de búsqueda local: Simulated Annealing, Hill Climbing (en su versión canónica), y el Algoritmo Genético, aplicándolos al problema de las N-reinas. Este problema consiste en colocar N reinas en un tablero de ajedrez de NxN sin que se amenacen entre sí, lo cual presenta un desafío interesante para los algoritmos de optimización. El objetivo del trabajo es comparar la efectividad y eficiencia, de cada uno de los algoritmos antes mencionados, en la resolución del problema con el fin de analizar cuál de los tres es el más adecuado para encontrar una solución óptima. El estudio se enfoca en cómo las distintas características de cada algoritmo afectan su desempeño y capacidad de escape de óptimos locales, un desafío frecuente en la búsqueda local.
 
@@ -26,7 +26,7 @@ En cada generación, se seleccionan individuos (soluciones) de la población act
 
 El GA es especialmente adecuado para problemas donde el espacio de búsqueda es vasto y se necesita una exploración diversa del mismo. Debido a la naturaleza estocástica del algoritmo, el GA es muy efectivo para evitar óptimos locales, ya que mantiene y explora múltiples soluciones simultáneamente.
 
-#DISEÑO EXPERIMENTAL
+**DISEÑO EXPERIMENTAL**
 
 Antes de iniciar con las pruebas se diseñaron los algoritmos de búsqueda local: hill climbing, simulated annealing y genetic, teniendo en cuenta las siguientes instrucciones:
 
@@ -37,14 +37,13 @@ Antes de iniciar con las pruebas se diseñaron los algoritmos de búsqueda local
 
 Luego, se ejecutó 30 veces cada algoritmo para el caso de 4, 8 y 10 reinas.
 
-#ANÁLISIS Y DISCUSIÓN DE RESULTADOS
+**ANÁLISIS Y DISCUSIÓN DE RESULTADOS**
 
 A continuación se muestran los resultados obtenidos usando diagrama de caja
 
 - **Distribución de los tiempos de ejecución** 
 
-
-\!\[\](https://github.com/Perlaval/ia-uncuyo-2024/blob/main/tp4-busquedas-locales/images/tiempo\_ejecucion\_boxplot.png)
+![Tiempos de ejecucion](imagenes/tiempo_ejecucion_boxplot.png)
 
 - **Distribución de la cantidad de estados visitados**
 
