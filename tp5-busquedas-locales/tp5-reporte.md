@@ -2,7 +2,7 @@
 
 En este trabajo, exploramos tres algoritmos de búsqueda local: Simulated Annealing, Hill Climbing (en su versión canónica), y el Algoritmo Genético, aplicándolos al problema de las N-reinas. Este problema consiste en colocar N reinas en un tablero de ajedrez de NxN sin que se amenacen entre sí, lo cual presenta un desafío interesante para los algoritmos de optimización. El objetivo del trabajo es comparar la efectividad y eficiencia, de cada uno de los algoritmos antes mencionados, en la resolución del problema con el fin de analizar cuál de los tres es el más adecuado para encontrar una solución óptima. El estudio se enfoca en cómo las distintas características de cada algoritmo afectan su desempeño y capacidad de escape de óptimos locales, un desafío frecuente en la búsqueda local.
 
-#MARCO TEÓRICO 
+**MARCO TEÓRICO**
 
 **Hill Climbing**
 
@@ -48,7 +48,7 @@ A continuación se muestran los resultados obtenidos usando diagrama de caja
 
 - **Distribución de la cantidad de estados visitados**
 
-\!\[\](https://github.com/Perlaval/ia-uncuyo-2024/blob/main/tp4-busquedas-locales/images/estados\_visitados\_boxplot.png)
+![Estados visitados](https://github.com/trinidadperea/ia-uncuyo-2024/raw/main/tp5-busquedas-locales/images/estados_visitados_boxplot.png)
 
 **Datos obtenidos:**
 
@@ -72,19 +72,19 @@ Porcentaje de soluciones encontradas  2.1
 - **Hill Climbing**
 
 
-\!\[\](https://github.com/Perlaval/ia-uncuyo-2024/blob/main/tp4-busquedas-locales/images/heuristic\_variation\_HC.png)
+![Heuristica HC](https://github.com/trinidadperea/ia-uncuyo-2024/raw/main/tp5-busquedas-locales/images/heuristic_variation_HC.png)
 
 La caída rápida inicial indica que el algoritmo **Hill Climbing** logra mejoras significativas en la función heurística desde el principio, luego podemos ver como hace una transición a una función constante después de las mejoras iniciales esto se puede deber a que el algoritmo encontró un punto donde ya no puede realizar más mejoras en la función heurística porque ha alcanzado un óptimo local.
 
 - **Simulated Annealing**
 
-\!\[\](https://github.com/Perlaval/ia-uncuyo-2024/blob/main/tp4-busquedas-locales/images/heuristic\_variation\_SA.png)
+![Heuristica SA](https://github.com/trinidadperea/ia-uncuyo-2024/raw/main/tp5-busquedas-locales/images/heuristic_variation_SA.png)
 
 En este caso vemos como el algoritmo **Simulated Annealing** va explorando activamente el espacio de soluciones. El comportamiento que vemos en el gráfico es característico del proceso de “enfriamiento” del algoritmo donde al principio la temperatura es alta, lo que permite una mayor aceptación de cambios, incluso aquellos que no son los mejores.
 
 - **Genético**
 
-\!\[\](https://github.com/Perlaval/ia-uncuyo-2024/blob/main/tp4-busquedas-locales/images/heuristic\_variation\_GA.png)
+![Heuristica Genetico](https://github.com/trinidadperea/ia-uncuyo-2024/raw/main/tp5-busquedas-locales/images/heuristic_variation_GA.png)
 
 En este gráfico podemos ver cómo el algoritmo **Genético** ha encontrado varios óptimos locales lo que vendrían siendo soluciones de calidad comparable 
 
