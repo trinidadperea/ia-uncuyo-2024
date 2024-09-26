@@ -43,7 +43,8 @@ A continuación se muestran los resultados obtenidos usando diagrama de caja
 
 - **Distribución de los tiempos de ejecución**
  
-![Tiempos de ejecucion](https://github.com/trinidadperea/ia-uncuyo-2024/blob/main/tp5-busquedas-locales/imagenes/tiempo_ejecucion_boxplot.png)
+![Tiempos de ejecución](https://github.com/trinidadperea/ia-uncuyo-2024/raw/main/tp5-busquedas-locales/imagenes/tiempo_ejecucion_boxplot.png)
+
 
 - **Distribución de la cantidad de estados visitados**
 
