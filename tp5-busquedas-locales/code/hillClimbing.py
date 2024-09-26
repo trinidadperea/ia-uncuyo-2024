@@ -17,8 +17,8 @@ def hill_climbing(max_iterations, start):
             
             if neighbor_heuristic < current_heuristic:
                 current = neighbor
-            else:
-                return current, i, h_variation  
+            # else:
+            #     return current, i, h_variation  
         
         i += 1
     

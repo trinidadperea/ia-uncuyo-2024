@@ -7,6 +7,9 @@ def genetic(population_size: int, iterations: int, mutation_rate: float, size: i
 
     population = get_population(population_size, size)
     sum_fitness, best_state = get_population_fitness(population, size)
+
+    # c) estrategia de reemplazo -------------------------------------------------------------------------------
+    # Después de generar una nueva población (a través de cruce y mutación), la nueva generación reemplaza a la población anterior. Sin embargo, hay una estrategia de "elitismo" en la que un porcentaje fijo de los mejores individuos de la población actual se conserva para la siguiente generación. Esto está controlado por la variable elite_size, que asegura que los mejores individuos no se pierdan.
     elite_size = int(population_size * 0.1)
     h_variation = []
 
@@ -46,11 +49,20 @@ def get_population_fitness(population, size):
     return sum_fitness, best_state
 
 
+#a) Definición de los Individuos de la población --------------------------------------------------------------------------------
+
+#Individuos: Cada individuo en la población está representado por un estado que es una lista generada por random_state(size) en la función get_population(). Los estados representan posibles soluciones para el problema de las N-reinas.
+#Por ejemplo, si size = 8 (8 reinas), cada individuo sería una lista de 8 números, donde cada número indica la fila de una reina en una columna específica.
+
 def get_population(population_size: int, size: int):
     population = []
     for i in range(population_size):
         population.append(random_state(size))
     return population
+
+
+# B) Estrategia de selección -----------------------------------------------------------
+#La función selection() implementa una forma de selección basada en la aptitud (fitness). La probabilidad de seleccionar un individuo es inversamente proporcional a su valor de fitness. Los estados con menor fitness tienen mayor probabilidad de ser seleccionados para la reproducción (ya que menor fitness indica una mejor solución en este caso).
 
 
 def fitness(state, size):
@@ -74,6 +86,11 @@ def crossover(selected):
                 new_population.append(crossover_states(selected[i], selected[j]))
     return new_population
 
+# d) Operadores: crossover, mutación -----------------------------------------------------------
+
+# crossover(): combina dos individuos seleccionados para crear nuevos individuos. Esto se hace cortando los estados por la mitad y mezclando sus partes.
+
+# mutate(): altera aleatoriamente el estado de los individuos con una probabilidad definida por mutation_rate. Esto introduce variabilidad en la población
 
 def crossover_states(state1, state2):
     cross_point = int(len(state1)/2)

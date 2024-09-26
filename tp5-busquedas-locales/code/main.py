@@ -101,7 +101,7 @@ def main():
                 })
     endEjecucion = time.time()
     print("Tiempo del for: ",endEjecucion - startEjecucion)
-     # Calculate mean and standard deviation
+    # Calculate mean and standard deviation
     mean_states_explored_hill = sum(num_explored_hill) / num_trials
     std_dev_states_explored_hill = (sum([(x - mean_states_explored_hill) ** 2 for x in num_explored_hill]) / num_trials) ** 0.5
     mean_execution_time_hill = sum(execution_time_hill) / num_trials
@@ -121,7 +121,7 @@ def main():
     percentage_solution_genetic = count_solution_genetic / num_trials
 
     # Guardar resultados en archivo csv
-    with open('results.csv', 'w', newline='') as csvfile:
+    with open('tp5-Nreinas.csv', 'w', newline='') as csvfile:
         fieldnames = ['Algorithm_name', 'reinas','env_n', 'states_n', 'solution_found','time']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -157,20 +157,49 @@ def main():
     plt.title('Execution time boxplot')
     plt.show()
 
+    # Dsitribución de la cantidad de estados previos visitados
+    # Boxplot para la cantidad de estados visitados
+    plt.boxplot([num_explored_hill, num_explored_sim_annealing, num_explored_genetic],
+                labels=['Hill Climbing', 'Simulated Annealing', 'Genetic'],
+                showfliers=True)
+    plt.ylabel('States visited')
+    plt.xlabel('Algorithm')
+    plt.title('States visited boxplot')
+    plt.show()
+
+
     # Heuristic variation plot
     plt.plot(h_variation_hill_1, label='Hill Climbing')
     plt.xlabel('Iteration')
     plt.ylabel('Heuristic')
     plt.title('Heuristic variation plot (Hill Climbing)')
+    plt.legend()
     plt.show()
 
+    #SA
+    plt.plot(h_variation_sim_annealing_1, label='Simulated Annealing')
+    plt.xlabel('Iteration')
+    plt.ylabel('Heuristic')
+    plt.title('Heuristic variation plot (Simulated Annealing)')
+    plt.legend()
+    plt.show()
+
+    #GA
+    plt.plot(h_variation_genetic_1, label='Genetic')
+    plt.xlabel('Iteration')
+    plt.ylabel('Heuristic')
+    plt.title('Heuristic variation plot (Genetic)')
+    plt.legend()
+    plt.show()
+
+    """ plt.plot(h_variation_hill_1, label='Hill Climbing')
     plt.plot(h_variation_sim_annealing_1, label='Simulated Annealing')
     plt.plot(h_variation_genetic_1, label='Genetic')
     plt.legend()
     plt.xlabel('Iteration')
     plt.ylabel('Heuristic')
     plt.title('Heuristic variation plot')
-    plt.show()
+    plt.show() """
 
 if __name__ == '__main__':
     main()
