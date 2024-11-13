@@ -21,10 +21,8 @@ No se aplicó normalización ni estandarización en los datos numéricos, ya que
 El modelo fue entrenado usando un 35% de los datos como conjunto de validación (`test_dataNew`). La precisión calculada en este conjunto de validación fue la siguiente:
 - **Precisión en conjunto de validación:** La precisión del modelo se calcula mediante el promedio de las predicciones correctas en relación con los valores reales de `inclinacion_peligrosa`.
 
-**Nota:** La precisión final puede depender de los datos y de la variabilidad inherente al conjunto de datos.
-
 ## Resultados Obtenidos en Kaggle
-El conjunto de pruebas (`data_test`) fue cargado y utilizado para generar un archivo de predicciones para su evaluación en Kaggle. Los resultados específicos obtenidos en Kaggle se presentan en la siguiente tabla:
+El conjunto de pruebas (`data_test`) fue cargado y utilizado para generar un archivo de predicciones para su evaluación en Kaggle. Los resultados específicos obtenidos en Kaggle fueron:
 - **Resultados en Kaggle:** 0.74685
 
 ## Descripción Detallada del Algoritmo Propuesto
